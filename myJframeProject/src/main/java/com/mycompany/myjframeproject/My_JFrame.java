@@ -98,26 +98,16 @@ public class My_JFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void openButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openButtonActionPerformed
-        BufferedReader reader=null;
+        String str=jTextArea1.getText();
         try {
-            String str=jTextArea1.getText();
-            //System.out.println(str);
-            reader = new BufferedReader(new FileReader(str));
-            
-            try {
-                jTextArea2.read(reader,null);
-            } catch (IOException ex) {
-                Logger.getLogger(My_JFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            BufferedReader reader=new BufferedReader(new FileReader(str));
+            jTextArea2.read(reader,null);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(My_JFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException ex) {
-                Logger.getLogger(My_JFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (IOException ex) {
+            Logger.getLogger(My_JFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
     }//GEN-LAST:event_openButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
